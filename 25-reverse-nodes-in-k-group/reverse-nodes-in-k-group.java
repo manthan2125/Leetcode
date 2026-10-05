@@ -35,7 +35,7 @@ class Solution {
             }
             else{
                 if(prevleft != null) prevleft.next = left;
-                if(res == null) res = left;
+                // if(res == null) res = left;
                 break;
             }
         }
