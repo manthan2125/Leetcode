@@ -1,38 +1,44 @@
 class Solution {
+    public void reverse(ListNode head, int times){
+        ListNode curr = head;
+        ListNode prev = null;
+        ListNode agla = null;
+        while(times > 0){
+            agla = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = agla;
+            times--;
+        }
+    }
     public ListNode swapPairs(ListNode head) {
         if(head == null || head.next == null) return head;
-        ListNode d1 = new ListNode(0);
-        ListNode d2 = new ListNode(0);
-        ListNode t1 = d1;
-        ListNode t2 = d2;
-        ListNode t = head;
-        while(t != null){
-            t1.next = t;
-            t1 = t1.next;
-            t = t.next;
-            if(t == null) t2.next = null;
+        int size = 2;
+        ListNode left = head;
+        ListNode res = null;
+        ListNode right;
+        ListNode prevleft = null;
+        while(true){
+            right = left;
+            for(int i = 0; i < size - 1; i++){
+                if(right == null) break;
+                right = right.next;
+            }
+            if(right != null){
+                ListNode nextleft = right.next;
+                reverse(left, size);
+                if(prevleft != null) prevleft.next = right;
+                prevleft = left;
+                if(res == null) res = right;
+                left = nextleft;
+            }
             else{
-                t2.next = t;
-                t2 = t2.next;
-                t = t.next;
+                if(prevleft != null) prevleft.next = left;
+                if(res == null) res = left;
+                break;
             }
         }
-        t1.next = null;
-        t2.next = null;
-        t1 = d1.next;
-        t2 = d2.next;
-        ListNode d = new ListNode(0);
-        t = d;
-        while(t1 != null && t2 != null){
-            t.next = t2;
-            t2 = t2.next;
-            t = t.next;
+        return res;
 
-            t.next = t1;
-            t1 = t1.next;
-            t = t.next;
-        }
-        return d.next;
-        
     }
 }
