@@ -23,7 +23,7 @@
 
 class Solution {
     public long maxAlternatingSum(int[] nums) {
-        Arrays.sort(nums);
+        // Arrays.sort(nums);
         int n = nums.length;
         long sum = 0;
 
