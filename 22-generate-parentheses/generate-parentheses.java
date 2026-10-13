@@ -7,18 +7,7 @@ class Solution {
         return res;
     }
     private void generate(String current, int open, int close, int n, List<String> res) {
-        // if(open == n && close == n) {
-        //     res.add(current);
-        //     return;
-        // }
-        // if (open < n) {
-        //     generate(current + "(", open + 1, close, n, res);
-        // }
-        // if (close < open) {
-        //     generate(current + ")", open, close + 1, n, res);
-        // }
-
-        if (current.length() == 2 * n) {
+        if(open == n && close == n) {
             res.add(current);
             return;
         }
@@ -28,5 +17,6 @@ class Solution {
         if (close < open) {
             generate(current + ")", open, close + 1, n, res);
         }
+
     }
 }
