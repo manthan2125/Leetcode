@@ -27,7 +27,7 @@ class Solution {
         int n = nums.length;
         long sum = 0;
 
-        // Arrays.sort(nums);
+        Arrays.sort(nums);
 
         Integer[] arr = new Integer[n];
         for (int i = 0; i < n; i++) {
