@@ -4,17 +4,20 @@ class Solution {
             return "";
         }
 
-        int k = sum / 9;
-        int rem = sum % 9;
+        // int k = sum / 9;
+        // int rem = sum % 9;
 
-        StringBuilder ans = new StringBuilder("9".repeat(k));
+        StringBuilder ans = new StringBuilder();
 
-        if (rem > 0) {
-            ans.append(rem);
+        for(int i = 0 ;i < num; i++){
+            if(sum >= 9){
+            ans.append(9);
+            sum = sum - 9;
         }
-
-        while (ans.length() < num) {
-            ans.append('0');
+        else{
+            ans.append(sum);
+            sum = 0;
+        }
         }
 
         return ans.toString();
