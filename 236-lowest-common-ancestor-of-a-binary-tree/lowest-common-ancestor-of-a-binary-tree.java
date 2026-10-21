@@ -1,5 +1,5 @@
 class Solution {
-    static TreeNode ans = null;
+    static TreeNode ans;
     public int fun(TreeNode root, TreeNode p, TreeNode q){
         if(root == null) return 0;
         int left =  fun(root.left, p, q);
