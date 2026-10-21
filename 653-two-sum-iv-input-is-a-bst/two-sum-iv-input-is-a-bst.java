@@ -1,6 +1,6 @@
 class Solution {
-    static Stack<TreeNode> asc;
-    static Stack<TreeNode> desc;
+    static Stack<TreeNode> asc = new Stack<>();
+    static Stack<TreeNode> desc = new Stack<>();
     TreeNode getSmall(){
         if(asc.size() == 0) return null;
         TreeNode small = asc.pop();
@@ -23,8 +23,6 @@ class Solution {
     }
     public boolean findTarget(TreeNode root, int k) {
         if(root == null) return false;
-        asc = new Stack<>();
-        desc = new Stack<>();
         TreeNode t = root;
         while(t != null){
             asc.push(t);
