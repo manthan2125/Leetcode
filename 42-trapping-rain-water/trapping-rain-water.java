@@ -5,7 +5,7 @@ class Solution {
         int water = 0;
         int leftMax = height[left], rightMax = height[right];
         while(left < right){
-            if(leftMax < rightMax){
+            if(leftMax <= rightMax){
                 left++;
                 leftMax = Math.max(leftMax, height[left]);
                 water += leftMax - height[left]; 
