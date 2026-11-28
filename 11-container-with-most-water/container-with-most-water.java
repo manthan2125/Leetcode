@@ -15,7 +15,7 @@ class Solution {
 
             maxWater = Math.max(maxWater, area);
 
-            if (height[left] < height[right]) {
+            if (height[left] <= height[right]) {
                 left++;
             } else {
                 right--;
